@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <template id="dailydyeing_report">
+        <t t-call="report.html_container">
+        
+             
+                <div class="page">
+                
+                    <div class="oe_structure"/>
+                      <div class="row">
+                        <div class="col-xs-12">
+                            <u><strong  style="font-size:22px;" align="center">Daily Dyeing Production Report</strong></u><br/>
+                            <u><strong  style="font-size:16px;">Date To:</strong></u><u><span  t-esc="date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></u><br/>
+                            <u><strong  style="font-size:16px;">Date From:</strong></u><u><span t-esc="date_planned_start2" t-options="{&quot;widget&quot;: &quot;date&quot;}"/> </u><br/>   
+                        </div>
+                    
+                      <br/> <br/> <br/> <br/> <br/> <br/> 
+                     <div class="col-xs-12">
+                    <table style="border:1px solid black;" class="table table-condensed">
+                      <thead>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Dyeing Source</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Dyeing Process</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Dyeing Type</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Color#</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Item</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Weight Bundle</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong> Weight Kgs</strong></th>
+
+                </thead>
+
+                <tbody class="sale_tbody">
+                 <t t-foreach="datav" t-as="v">
+                   <tr>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.dying_source"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.dying_process"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.dying_type"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.product_id"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                      	    <span t-field="v.product_qty"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.bundle"/>
+                    </td>
+                    <td width="10%" style=" border:1px solid black;">
+                            <span t-field="v.weight1"/>
+                    </td>
+                   </tr>
+                  </t>
+                </tbody>
+            </table>
+            </div>
+            <br/> <br/> <br/> <br/> <br/> <br/>
+         <div class="col-xs-12">
+    	    <table class="table table-condensed" style="width:60%; float:left">
+    	        <thead>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Item/Dyeing Type</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Bundle</strong></th>
+                        <th width="10%" style="border:1px solid black;" class="text-center"><strong>Weigh</strong></th>
+                </thead>
+                <tbody>
+                    <t t-foreach="list1" t-as="items">
+                        <tr>
+                            <td width="10%" style=" border:1px solid black;">
+                                <span t-esc="items[0]"/>
+                            </td>
+
+                            <td width="10%" style=" border:1px solid black;">
+                               <span t-esc="items[1]"/>
+                            </td>
+
+                            <td width="10%" style="border:1px solid black;">
+                                <span t-esc="items[2]"/>
+                            </td>
+                        </tr>
+                    </t>
+
+                </tbody>
+          </table>
+          <table class="table table-condensed" style="width:30%; float:right">
+              <thead>
+                     <th width="10%" style="border:1px solid black;" class="text-center"><strong>Total Present</strong></th>
+              </thead>
+          </table>
+        </div>
+      </div>
+        <div class="col-xs-2" style="width:20%; margin-left:0px;">Total</div>
+        <div class="col-xs-4" style="width:40%;">________________</div>
+        <br/> <br/> <br/> <br/>
+        <div>
+          <div class="col-xs-3" style="width:25%;"> Prepared by____________</div>
+          <div class="col-xs-3" style="width:25%;">Checked By_____________</div>
+          <div class="col-xs-3" style="width:25%;">Entered by_____________</div>
+          <div class="col-xs-3" style="width:25%;">Approved by_____________</div>
+        </div>
+    </div>
+  </t>
+ </template>
+</odoo>

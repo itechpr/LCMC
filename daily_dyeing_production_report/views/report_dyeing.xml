@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+            
+    <report 
+        id="action_view_report_daily_dyeing" 
+        model="daily.dyeing.report" 
+        string="Daily Dyeing Report"
+        report_type="qweb-pdf"
+        name="daily_dyeing_production_report.dailydyeing_report" 
+        file="daily_dyeing_production_report.dailydyeing_report"
+    />
+    
+    
+            
+        
+    <record id="view_report_daily_dyeing_report" model="ir.ui.view">
+        <field name="name">Daily Dyeing Report</field>
+        <field name="model">daily.dyeing.report</field>
+        <field name="arch" type="xml">
+        <form string="Daily Dyeing Production Report">
+            <group col="4" colspan="6">
+                <field name="date_from"/>
+                <newline/>
+                <field name="date_to"/>
+                <newline/>
+                
+                                       
+               
+            </group>
+            <footer>
+                <button name="print_report_dailydyeing_report" string="Print" type="object" class="btn-primary"/>
+                <button string="Cancel" class="btn-default" special="cancel"/>
+            </footer>
+        </form>
+        </field>
+    </record>    
+    <record id="action_report_dailydyeing_form_production" model="ir.actions.act_window">
+        <field name="name">Daily Dyeing production Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">daily.dyeing.report</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>  
+    
+    <menuitem 
+        action="action_report_dailydyeing_form_production" 
+        name="Daily Dyeing Production Report"
+        id="action_report_form_production123" 
+        parent="mrp.menu_mrp_reporting" 
+        />
+  
+    
+</odoo>
